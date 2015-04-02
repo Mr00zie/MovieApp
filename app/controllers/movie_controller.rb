@@ -14,9 +14,7 @@ class MovieController < ApplicationController
 
 	def create
 		# Q1. How can the program can get the user input ??? done!!
-
 		# render plain: params[:movie].inspect
-
 		# Q2. How to create a Movie instance? 
 		@movie = Movie.create()
 		@movie.title = params[:movie][:title]
@@ -31,18 +29,18 @@ class MovieController < ApplicationController
 	end
 
 	def edit
-		@movies = Movie.find(params[:id])
-	 
+		@movie = Movie.find(params[:id])
 	end
 
 	def update
 		@movie = Movie.find(params[:id])
-      if @movie.update_attributes(params[:id])
-         redirect_to :action => 'show', :id => @movie
-      else
-         @subjects = Subject.find(:all)
-         render :action => 'edit'
-      end
+
+		@movie.title = params[:movie][:title]
+		@movie.description = params[:movie][:description]
+		@movie.year_released = params[:movie][:year_released].to_i
+		@movie.save
+		# redirect_to movie_index_path
+		redirect_to movie_index_path
   	end
 
 	def search 

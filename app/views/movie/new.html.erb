@@ -1,7 +1,7 @@
 <h2>New Movie</h2>
 
 <%= form_for :movie, url: movie_index_path do |f| %> 
-<!-- movie_index_path = 'movie/' -->
+<!-- movie_index_path = 'movie/' to action "create" -->
   <p>
     <%= f.label :title %><br>
     <%= f.text_field :title %>
@@ -18,6 +18,6 @@
   </p>
 
   <p>
-    <%= f.submit %>
+    <%= f.submit "Create Movie"%>
   </p>
 <% end %>
