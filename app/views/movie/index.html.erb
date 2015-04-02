@@ -12,7 +12,7 @@
   @movies.each do |x|
 %>
 <li>
-  <%= link_to x.title, x %> | <%= x.year_released%> 
+  <%= link_to x.title, x %> | <%= x.year_released%> | <%= link_to "Edit", edit_movie_path(x)%>
   <!-- link to "link name", "movie/index" -->
   <!-- link to "link name", movie_index_path -->
   <!-- link to "link name", object -->
@@ -23,4 +23,3 @@
 </ul>
 
 <%= link_to "Add New Movie", "/movie/new" %>
-<%= link_to "Edit", "/movie/edit" %>

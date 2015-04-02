@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # post 'movie' => 'movie#create'
   get '/search' => 'movie#search'
 
-  resources :movie, only: [:index, :new, :create, :show, :edit]
+  resources :movie, only: [:index, :new, :create, :show, :edit, :update]
 
 
   
