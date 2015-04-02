@@ -4,7 +4,6 @@ class MovieController < ApplicationController
 	end
 
 	def show
-
 		@movie = Movie.find(params[:id])
 		
 	end
@@ -32,13 +31,24 @@ class MovieController < ApplicationController
 	end
 
 	def edit
-		@movie = Movie.find(params[:id])
+		@movies = Movie.find(params[:id])
+	 
 	end
 
-	def search
-		
+	def update
 		@movie = Movie.find(params[:id])
+      if @movie.update_attributes(params[:id])
+         redirect_to :action => 'show', :id => @movie
+      else
+         @subjects = Subject.find(:all)
+         render :action => 'edit'
+      end
+  	end
 
+	def search 
+		
+		
+		@movies = Movie.where({title:params[:id]})
 		#@movie.title = Movie.find(params[:movie][:title])
 		#@movie.title = params[:movie][:title]
 		
